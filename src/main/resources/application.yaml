@@ -1,3 +1,5 @@
+
+
 spring:
   application:
     name: banking-api
@@ -10,17 +12,19 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate  # Let Flyway handle schema
+      ddl-auto: validate
     show-sql: true
+    open-in-view: false
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   data:
     redis:
       host: localhost
       port: 6379
+      repositories:
+        enabled: false
 
   flyway:
     enabled: true
@@ -29,20 +33,15 @@ spring:
 
 server:
   port: 8080
-  error:
-    include-message: always
 
 logging:
   level:
     com.banking: DEBUG
-    org.springframework.security: DEBUG
 
-# JWT Configuration
 jwt:
-  secret: your-256-bit-secret-key-change-this-in-production
-  expiration: 86400000  # 24 hours in milliseconds
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
 
-# Actuator
 management:
   endpoints:
     web:
