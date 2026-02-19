@@ -24,6 +24,7 @@ public class AuthResponse {
             example = "Bearer",
             defaultValue = "Bearer"
     )
+    @Builder.Default
     private String tokenType = "Bearer";
 
     @Schema(
